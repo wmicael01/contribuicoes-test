@@ -42,7 +42,7 @@ class Tarefa  {
     }
 
     adicionar(input){
-        this.buscaElemento.push({id: 0, itemTarefa: input});
+        this.#elemento.push({id: 0, itemTarefa: input});
     }
 
     criarView(){
