@@ -15,6 +15,18 @@ class Tarefa  {
         }
     }
 
+    limparCampo(valor,input){
+        if(valor){
+            input.value = ""
+        }
+    }
+
+    validaCampo(valor){
+        if(valor == ""){
+            alert("O campo deve ser preenchido!");
+        }
+     }
+
     pegarValor(){
         const input = document.querySelector(".campo-adicionar");
         let valor = input.value;
@@ -34,9 +46,9 @@ class Tarefa  {
     }
 
     criarView(){
-        this.buscaUl.innerHTML = ""
-        this.buscaElemento.forEach((itemElemento, indexElemento) => {
-            this.buscaUl.innerHTML += `
+        this.#ul.innerHTML = ""
+        this.#elemento.forEach((itemElemento, indexElemento) => {
+            this.#ul.innerHTML += `
                 <li>
                     <img class="logo-concluir" src="/assets/img/verificar.png" onClick="concluir(${indexElemento})" alt="logo-concluir">
                     <span>${itemElemento.itemTarefa}</span>
@@ -46,38 +58,9 @@ class Tarefa  {
         })
     }
 
-    validaCampo(valor){
-       if(valor == ""){
-            alert("O campo deve ser preenchido!");
-       }
-    }
-
-    get buscaUl(){
-        return this.#ul;
-    }
-
-    set buscaUl(lista){
-        return this.#ul = lista;
-    }
-
-    get buscaElemento(){
-        return this.#elemento;
-    }
-
-    set buscaElemento(novoElemento){
-        return this.#elemento = novoElemento;
-    }
-
-
-    limparCampo(valor,input){
-        if(valor){
-            input.value = ""
-        }
-    }
 }
 
 const tarefa = new Tarefa();
-console.log(tarefa);
 
 const form = document.querySelector(".form");
 form.addEventListener("submit", (evento) => {
